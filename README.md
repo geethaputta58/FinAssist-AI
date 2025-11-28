@@ -1,151 +1,82 @@
-# RBC AI Banking Agent
+FinAssist AI — Intelligent Banking Support Assistant (RAG + Urgency Detection)
 
-An intelligent banking assistant that combines LLM capabilities with RAG (Retrieval Augmented Generation) to provide accurate information about RBC banking products and services while enabling account management functionality.
+FinAssist AI is an intelligent banking support assistant that combines Retrieval-Augmented Generation (RAG), urgency detection, and multi-turn conversational memory to deliver fast, accurate, and context-aware customer assistance. It retrieves answers from banking manuals and loan policy documents while identifying high-priority requests such as emergency loan needs.
 
-## Key Features
+Features
+🔍 RAG-Based Document Retrieval
 
-1. **Intelligent Banking Operations**
-   - Account balance inquiries
-   - Fund transfers between accounts
-   - Transaction history retrieval
-   - Account listing and management
+Extracts information from banking manuals, loan policies, and FAQs
 
-2. **Knowledge-Based Assistance**
-   - RAG-powered responses using official RBC documentation
-   - Accurate information about banking products and services
-   - Investment and financial planning guidance
+Ensures accurate, policy-aligned responses
 
-3. **Advanced AI Techniques**
-   - **Retrieval Augmented Generation (RAG)**: Combines LLM capabilities with a knowledge base of RBC documents
-   - **Prompt Engineering**: Carefully crafted system instructions to guide the model's behavior
-   - **Intent Detection**: Identifies user intents to route queries appropriately
-   - **Function Calling**: Uses LLM to determine which banking operations to perform
+⚠️ Urgency Detection
 
-4. **Modern User Interface**
-   - Responsive web interface with chat functionality
-   - Draggable and resizable chat window
-   - Secure authentication flow
-   - Real-time typing indicators
+Classifies high-priority cases such as emergency medical loans or urgent account issues
 
-## Technical Architecture
+Enables faster handling of time-sensitive requests
 
-### Components
+🧠 Conversation Memory
 
-1. **RAG System**
-   - Document loader and processor for RBC banking documents
-   - Vector store using Chroma DB for semantic search
-   - Embedding generation using Google's embedding models
-   - RAG pipeline for answering banking questions with citations
+Maintains multi-turn context for natural, human-like interactions
 
-2. **Banking Operations**
-   - SQLite database for account and transaction management
-   - Secure fund transfer functionality
-   - Transaction history tracking
-   - Account balance management
+Understands follow-up questions and user intent
 
-3. **Conversation Management**
-   - Intent detection for understanding user queries
-   - Response formatting for consistent user experience
-   - Conversation history tracking for contextual responses
-   - Command handling for system operations
+🏦 Banking Domain Support
 
-4. **Web Interface**
-   - Flask-based web server
-   - Modern responsive UI with CSS animations
-   - JWT-based authentication
-   - Asynchronous message handling
+Loan eligibility guidance
 
-### Setup Instructions
+Policy explanation
 
-1. **Prerequisites**
-   - Python 3.8+
-   - Google Gemini API key
+Account and service-related Q&A
 
-2. **Installation**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/yourusername/rbc-banking-agent.git
-   cd rbc-banking-agent
+Tech Stack
 
-   # Install dependencies
-   pip install -r requirements.txt
+Python
 
-   # Create .env file with your API key
-   echo "GEMINI_API_KEY=your_api_key_here" > .env
-   ```
+LangChain
 
-3. **Document Collection (First-time setup)**
-   ```bash
-   # Run the document scraper to collect RBC documentation
-   python -m chatbot.rag.rbc_explorer
-   
-   # Collect investment FAQs
-   python -m chatbot.rag.save_investment_faqs
-   ```
+OpenAI GPT / Llama
 
-4. **Running the Agent**
-   ```bash
-   # Start the MCP server in one terminal
-   python -m chatbot.mcp.server-sse_1
+FAISS or Chroma vector store
 
-   # In another terminal, start the web application
-   python app.py
-   ```
+FastAPI / Streamlit
 
-5. **Accessing the Web Interface**
-   - Open your browser and navigate to http://localhost:3000
-   - Click on the chat icon in the bottom right corner
-   - Log in with your credentials (default: test1/password)
-   - Start chatting with the RBC AI Banking Agent
 
-## Project Structure
 
-```
-├── app.py              # Flask web application
-├── templates/          # HTML templates
-│   └── chat.html       # Main chat interface
-├── static/             # Static assets
-│   ├── script.js       # Client-side JavaScript
-│   └── style.css       # CSS styling
-├── chatbot/
-│   ├── __init__.py
-│   ├── account.py      # Account management functionality
-│   ├── config.py       # Core configuration settings
-│   ├── database.py     # Database operations
-│   ├── intent_detector.py # User intent detection
-│   ├── models.py       # Data models
-│   ├── response_formatter.py # Response formatting
-│   ├── mcp/
-│   │   ├── client_sse.py  # Interactive client
-│   │   └── server_sse.py  # MCP server with RAG
-│   └── rag/
-│       ├── document_loader.py # Document processing
-│       ├── rag_chatbot.py # RAG implementation
-│       ├── rbc_explorer.py # Document collection
-│       ├── save_investment_faqs.py # FAQ scraper
-│       └── vector_store.py # Vector database management
-```
+How It Works
 
-## Usage Examples
+User submits a banking query
 
-### Banking Operations
-- Check account balances: "What's my savings account balance?"
-- Transfer funds: "Transfer $50 from my savings to checking account"
-- View transactions: "Show me recent transactions in my checking account"
-- List accounts: "Show me all my accounts"
+Urgency detector flags critical requests
 
-### Banking Information
-- Product inquiries: "Tell me about the cash back program."
-- Service questions: "How do I set up direct deposit?"
-- Policy questions: "What is RBC's mortgage pre-approval process?"
-- Investment guidance: "How can I withdraw money from my TFSA account?"
+RAG retrieves the most relevant document chunks
 
-## Technologies Used
+LLM generates a final, context-aware answer
 
-- **Google Gemini**: Large language model for natural language understanding
-- **LangChain**: Framework for building LLM applications
-- **ChromaDB**: Vector database for document embeddings
-- **SQLite**: Lightweight database for banking operations
-- **Flask**: Web application framework
-- **JWT**: JSON Web Tokens for authentication
-- **HTML/CSS/JavaScript**: Frontend web technologies
+Memory manager keeps interaction flow smooth
+
+Getting Started
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Run API:
+
+python app/api.py
+
+
+Optional UI:
+
+streamlit run app/ui.py
+
+Use Cases
+
+Emergency loan assistance
+
+Loan documentation guidance
+
+Banking policy Q&A
+
+General account support
