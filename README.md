@@ -1,35 +1,35 @@
-FinAssist AI — Intelligent Banking Support Assistant (RAG + Urgency Detection)
+**FinAssist AI — Banking Support Assistant (RAG + Urgency Detection)**
 
-FinAssist AI is an intelligent banking support assistant that combines Retrieval-Augmented Generation (RAG), urgency detection, and multi-turn conversational memory to deliver fast, accurate, and context-aware customer assistance. It retrieves answers from banking manuals and loan policy documents while identifying high-priority requests such as emergency loan needs.
+FinAssist AI is an intelligent banking support assistant that uses Retrieval-Augmented Generation (RAG), urgency detection, and conversation memory to help users get accurate, fast, and context-aware answers to banking queries. The system can retrieve information from banking manuals, loan documents, and FAQs, while detecting urgent customer needs such as emergency medical loans.
 
-Features
-🔍 RAG-Based Document Retrieval
+✨ Features
+🔍 **RAG-Based Answer Retrieval**
 
-Extracts information from banking manuals, loan policies, and FAQs
+Pulls information directly from banking manuals, policies, and FAQs
 
-Ensures accurate, policy-aligned responses
+Ensures responses remain accurate and compliant with official guidelines
 
-⚠️ Urgency Detection
+⚠️ **Urgency Detection**
 
-Classifies high-priority cases such as emergency medical loans or urgent account issues
+Detects critical requests (e.g., emergency loans, urgent account issues)
 
-Enables faster handling of time-sensitive requests
+Helps prioritize time-sensitive customer needs
 
-🧠 Conversation Memory
+🧠**Multi-Turn Conversation Memory**
 
-Maintains multi-turn context for natural, human-like interactions
+Remembers previous messages
 
-Understands follow-up questions and user intent
+Provides smooth, natural, context-aware responses
 
-🏦 Banking Domain Support
+🏦 **Banking Domain Support**
 
-Loan eligibility guidance
+Loan eligibility assistance
 
-Policy explanation
+Account & service-related help
 
-Account and service-related Q&A
+Policy explanation and guidance
 
-Tech Stack
+🛠 **Tech Stack**
 
 Python
 
@@ -37,46 +37,42 @@ LangChain
 
 OpenAI GPT / Llama
 
-FAISS or Chroma vector store
+FAISS or Chroma (for vector search)
 
-FastAPI / Streamlit
+FastAPI / Streamlit (for API or UI)
 
 
 
-How It Works
+▶️ **How It Works**
 
-User submits a banking query
+User asks a banking question
 
-Urgency detector flags critical requests
+Urgency detector checks if the request is critical
 
-RAG retrieves the most relevant document chunks
+RAG retrieves relevant text from documents
 
-LLM generates a final, context-aware answer
+LLM generates a clear, contextual response
 
-Memory manager keeps interaction flow smooth
+Memory keeps the conversation flowing naturally
 
-Getting Started
-
-Install dependencies:
-
+🚀 **Getting Started**
+Install dependencies
 pip install -r requirements.txt
 
-
-Run API:
-
+Run API
 python app/api.py
 
-
-Optional UI:
-
+Optional Streamlit UI
 streamlit run app/ui.py
 
-Use Cases
+💡 Example Use Cases
 
-Emergency loan assistance
+Emergency loan guidance
 
-Loan documentation guidance
+Loan document requirements
 
-Banking policy Q&A
+FAQ-based customer support
 
-General account support
+General banking policy queries
+
+Account help & support
